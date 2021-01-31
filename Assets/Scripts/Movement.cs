@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float movespeed = 10f;
+    public float movespeed = 2f;
     // Start is called before the first frame update
     Rigidbody2D rb;
-    PlayerController pc;
+ 
     void Start()
     {
-        // movespeed = Random.Range(0, 10);
-        rb = GetComponent<Rigidbody2D>();
-        pc = GetComponent<PlayerController>();
+        rb = GetComponent<Rigidbody2D>();   
     }
 
     // Update is called once per frame
@@ -21,16 +19,7 @@ public class Movement : MonoBehaviour
         rb.freezeRotation = true;
         //rb.velocity = new Vector2(0, 0);
         rb.gravityScale = 0;
-        //GetComponent<BoxCollider2D>().sharedMaterial = null;
-
-        //transform.position = new Vector3(transform.position.x + movespeed, transform.position.y, -1);
-        if(!pc.moveAllowed)
-        {
-            rb.MovePosition((Vector2)transform.position + (Vector2.right * movespeed * Time.deltaTime));
-        }
-
-        //need to destroy when sheep reach a certain range 
-
-
+   
+        rb.MovePosition((Vector2)transform.position + (Vector2.right * movespeed * Time.deltaTime));
     }
 }
