@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     float deltaX, deltaY;
     Rigidbody2D rb;
+    public float rotationSpeed = 160f;
 
     public bool moveAllowed = false;
     public bool hasAnimal = false;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0); //Get the first touch input
             Vector2 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);//converts the touch input into world space coords
+            Vector2 originalPos = transform.position;
 
             switch (touch.phase) // if screen is touched
             {
@@ -40,10 +42,10 @@ public class PlayerController : MonoBehaviour
                         moveAllowed = true;
 
                         //restric rigidbody properties so it moves smoothly
-                        rb.freezeRotation = true;
+                        rb.freezeRotation = false;
                         rb.velocity = new Vector2(0, 0);
                         rb.gravityScale = 0;
-                        GetComponent<BoxCollider2D>().sharedMaterial = null;
+                        //GetComponent<BoxCollider2D>().sharedMaterial = null;
                         hasAnimal = true;
                     }
                     break;
@@ -51,7 +53,17 @@ public class PlayerController : MonoBehaviour
 
                     if(GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPosition) && moveAllowed) //if animal is touched and movement is allowed
                     {
-                        rb.MovePosition(new Vector2(touchPosition.x - deltaX, touchPosition.y - deltaY));
+                        Vector2 pointToObject = new Vector2(touchPosition.x - deltaX, touchPosition.y - deltaY);
+
+                        if(pointToObject.x > transform.position.x)
+                        {
+                            rb.AddTorque(Vector2.Dot(Vector2.down, pointToObject) * rotationSpeed * Time.deltaTime); //rotate right
+                        }
+                        else
+                        {
+                            rb.AddTorque( Vector2.Dot(Vector2.up,pointToObject) * rotationSpeed * Time.deltaTime); //rotate left
+                        }
+                        transform.position = originalPos;
                     }
                     break;
                 case TouchPhase.Ended: //if finger is released
@@ -59,8 +71,9 @@ public class PlayerController : MonoBehaviour
                     //restore initial parameters
                     hasAnimal = false;
                     moveAllowed = false;
-                    rb.freezeRotation = false;
-                    GetComponent<BoxCollider2D>().sharedMaterial = new PhysicsMaterial2D();
+                    rb.freezeRotation = true;
+                    transform.position = originalPos;
+                    //GetComponent<BoxCollider2D>().sharedMaterial = new PhysicsMaterial2D();
                     break;
             }
         }

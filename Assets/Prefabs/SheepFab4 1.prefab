@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 5381825251566042381}
   - component: {fileID: -8035499756802383389}
   - component: {fileID: -4010974742867118808}
-  - component: {fileID: -3529156690280866510}
   - component: {fileID: -5258934746413990280}
   m_Layer: 0
-  m_Name: SheepFab4
+  m_Name: SheepFab4 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,20 +95,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-3529156690280866510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5381825251566042611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e9c015a39120f4095466e5b7ec74e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveAllowed: 0
-  hasAnimal: 0
 --- !u!114 &-5258934746413990280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +178,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6a74f359abc438d4787cf4949039f2c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 733f2b35187fe284c893548c8e40da21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

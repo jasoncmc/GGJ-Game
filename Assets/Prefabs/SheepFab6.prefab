@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 5381825251566042381}
   - component: {fileID: -8035499756802383389}
   - component: {fileID: -4010974742867118808}
-  - component: {fileID: -3529156690280866510}
   - component: {fileID: -5258934746413990280}
   m_Layer: 0
   m_Name: SheepFab6
@@ -178,20 +177,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-3529156690280866510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5381825251566042611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e9c015a39120f4095466e5b7ec74e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveAllowed: 0
-  hasAnimal: 0
 --- !u!114 &-5258934746413990280
 MonoBehaviour:
   m_ObjectHideFlags: 0
